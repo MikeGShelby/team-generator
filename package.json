@@ -1,0 +1,25 @@
+{
+  "name": "team-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test":"jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeGShelby/team-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MikeGShelby/team-generator/issues"
+  },
+  "homepage": "https://github.com/MikeGShelby/team-generator#readme",
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
+}
