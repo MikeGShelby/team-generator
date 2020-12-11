@@ -29,7 +29,7 @@ test("returns employee's email address as a string", () => {
 });
 
 test("returns employee's role ('Employee')", () => {
-    const employee = new Employee();
+    const employee = new Employee('mike', '3', 'mikegshelby@gmail.com', 'Employee');
 
     expect(employee.getRole()).toEqual(expect.any(String));
 });
