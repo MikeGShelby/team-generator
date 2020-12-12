@@ -72,10 +72,10 @@ const promptManager = () => {
   ]);
 };
 
-const promptEmployee = portfolioData => {
-  // If there's no 'projects' array property, create one
-  if (!portfolioData.projects) {
-    portfolioData.projects = [];
+const promptEmployee = teamData => {
+  // If there's no 'employees' array property, create one
+  if (!teamData.employees) {
+    teamData.employees = [];
   }
 
     console.log(`
@@ -89,7 +89,7 @@ const promptEmployee = portfolioData => {
         type: 'list',
         name: 'role',
         message: 'What type of employee would you like to add to this team?',
-        choices: ['Engineer', 'Intern', 'I am done adding employees to this team']
+        choices: ['Engineer', 'Intern']
     },
 
     {
@@ -158,19 +158,20 @@ const promptEmployee = portfolioData => {
         default: false
     }
   ])
-  .then(projectData => {
-    portfolioData.projects.push(projectData);
-    if (projectData.confirmAddEmployee) {
-      return promptEmployee(portfolioData);
+  .then(employeeData => {
+    teamData.employees.push(employeeData);
+    if (employeeData.confirmAddEmployee) {
+      return promptEmployee(teamData);
     } else {
-      return portfolioData;
+      return teamData;
     }
+
   });
 };
 
 promptManager()
   .then(promptEmployee)
-  .then(portfolioData => {
-    return console.log(portfolioData)
+  .then(teamData => {
+    return console.log(teamData)
   });
 
