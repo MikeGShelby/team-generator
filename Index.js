@@ -16,21 +16,27 @@ const fs = require('fs');
 // personal modules
 const generatePage = require('./src/page-template.js');
 
-
 const promptManager = () => {
   return inquirer.prompt([
     {
         type: 'input',
         name: 'name',
-        message: "Please provide a name for your team's manager",
+        message: "Provide a name for your team's manager (Required):",
+        validate: nameInput => {
+            if (nameInput) {
+              return true;
+            } else {
+                return 'Please enter a name';
+            }
+          }
     },
 
     {
         type: 'input',
         name: 'id',
-        message: "Please provide an id for the team manager",
+        message: "Please provide an id for the team manager (Required):",
         validate: id => {
-            const pass = id.match(/^[1-9]\d*$/);
+            const pass = id.match(/^[0-9]\d*$/);
 
             if (pass) {
                 return true;
@@ -43,7 +49,7 @@ const promptManager = () => {
     {
         type: 'input',
         name: 'email',
-        message: "Please provide an email for the team manager",
+        message: "Please provide an email for the team manager (Required):",
         validate: email => {
             const pass = email.match(/[@]/);
 
@@ -58,9 +64,9 @@ const promptManager = () => {
     {
         type: 'input',
         name: 'officeNumber',
-        message: "Please provide an office number for the team manager",
+        message: "Please provide an office number for the team manager (Required):",
         validate: officeNumber => {
-            const pass = officeNumber.match(/^[1-9]\d*$/);
+            const pass = officeNumber.match(/^[0-9]\d*$/);
 
             if (pass) {
                 return true;
@@ -95,24 +101,22 @@ const promptEmployee = teamData => {
     {
         type: 'input',
         name: 'name',
-        message: "Provide a name for this employee:",
-        validate: name => {
-            const pass = name.match(/[a-zA-Z]/);
-
-            if (pass) {
-                return true;
+        message: "Provide a name for this employee (Required):",
+        validate: nameInput => {
+            if (nameInput) {
+              return true;
             } else {
                 return 'Please enter a name';
             }
-        }
+          }
     },
 
     {
         type: 'input',
         name: 'id',
-        message: "Provide an id for this employee:",
+        message: "Provide an id for this employee (Required):",
         validate: id => {
-            const pass = id.match(/^[1-9]\d*$/);
+            const pass = id.match(/^[0-9]\d*$/);
 
             if (pass) {
                 return true;
@@ -125,7 +129,7 @@ const promptEmployee = teamData => {
     {
         type: 'input',
         name: 'email',
-        message: "Provide an email for this employee",
+        message: "Provide an email for this employee (Required):",
         validate: email => {
             const pass = email.match(/[@]/);
 
@@ -165,7 +169,6 @@ const promptEmployee = teamData => {
     } else {
       return teamData;
     }
-
   });
 };
 
