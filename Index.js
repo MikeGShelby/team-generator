@@ -1,10 +1,7 @@
-// const generatePage = require('./src/page-template.js');
 // const Employee = require('./Employee');
 // const Manager = require('./Manager');
 // const Engineer = require('./Engineer');
 // const Intern = require('./Intern');
-
-// // const pageHTML = generatePage(arg1, arg1, arg1, arg1);
 
 // *** DEPENDENCIES ***
 // npm packages
@@ -16,67 +13,60 @@ const fs = require('fs');
 // personal modules
 const generatePage = require('./src/page-template.js');
 
-const promptManager = () => {
-  return inquirer.prompt([
-    {
-        type: 'input',
-        name: 'name',
-        message: "Provide a name for your team's manager (Required):",
-        validate: nameInput => {
-            if (nameInput) {
-              return true;
-            } else {
-                return 'Please enter a name';
-            }
-          }
-    },
+const teamData ={};
 
-    {
-        type: 'input',
-        name: 'id',
-        message: "Please provide an id for the team manager (Required):",
-        validate: id => {
-            const pass = id.match(/^[0-9]\d*$/);
+// const promptManager = () => {
+//   return inquirer.prompt([
+//     {
+//         type: 'input',
+//         name: 'name',
+//         message: "Provide a name for your team's     manager (Required):",
+//         validate: nameInput => {
+//             if (nameInput) {
+//               return true;
+//             } else {
+//                 return 'Please enter a name';
+//             }
+//           }
+//     },
 
-            if (pass) {
-                return true;
-            } else {
-                return 'Please enter an id that is a positive number';
-            }
-        }
-    },
+//     {
+//         type: 'input',
+//         name: 'id',
+//         message: "Please provide an id for the team manager (Required):",
+//         validate: id => {
+//             const pass = id.match(/^[0-9]\d*$/);
 
-    {
-        type: 'input',
-        name: 'email',
-        message: "Please provide an email for the team manager (Required):",
-        validate: email => {
-            const pass = email.match(/[@]/);
+//             if (pass) {
+//                 return true;
+//             } else {
+//                 return 'Please enter an id that is a positive number';
+//             }
+//         }
+//     },
 
-            if (pass) {
-                return true;
-            } else {
-                return 'Please enter a valid email address';
-            }
-        }
-    },
+//     {
+//         type: 'input',
+//         name: 'email',
+//         message: "Please provide an email for the team manager (Required):",
+//         validate: email => {
+//             const pass = email.match(/[@]/);
 
-    {
-        type: 'input',
-        name: 'officeNumber',
-        message: "Please provide an office number for the team manager (Required):",
-        validate: officeNumber => {
-            const pass = officeNumber.match(/^[0-9]\d*$/);
+//             if (pass) {
+//                 return true;
+//             } else {
+//                 return 'Please enter a valid email address';
+//             }
+//         }
+//     },
 
-            if (pass) {
-                return true;
-            } else {
-                return 'Please enter an office number that is a positive number';
-            }
-        }
-    },
-  ]);
-};
+//     {
+//
+//             }
+//         }
+//     },
+//   ]);
+// };
 
 const promptEmployee = teamData => {
   // If there's no 'employees' array property, create one
@@ -95,13 +85,13 @@ const promptEmployee = teamData => {
         type: 'list',
         name: 'role',
         message: 'What type of employee would you like to add to this team?',
-        choices: ['Engineer', 'Intern']
+        choices: ['Engineer', 'Intern', 'Manager']
     },
 
     {
         type: 'input',
         name: 'name',
-        message: "Provide a name for this employee (Required):",
+        message: 'Provide a name for this Employee (Required):',
         validate: nameInput => {
             if (nameInput) {
               return true;
@@ -143,6 +133,13 @@ const promptEmployee = teamData => {
 
     {
         type: 'input',
+        name: 'officeNumber',
+        message: "Provide an office number for this manager:",
+        when: (answers) => answers.role === 'Manager',
+    },
+
+    {
+        type: 'input',
         name: 'github',
         message: "Provide a github username for this engineer:",
         when: (answers) => answers.role === 'Engineer',
@@ -172,10 +169,31 @@ const promptEmployee = teamData => {
   });
 };
 
-promptManager()
-  .then(promptEmployee)
-  .then(teamData => {
-    return console.log(teamData)
-  });
+
+const mockData = {
+        employees: [
+            {
+            role: 'Engineer',
+            name: 'Mike',
+            id: '1',
+            email: 'mikegshelby@gmail.com',
+            github: 'mikegshelby',
+            confirmAddEmployee: false
+        }
+    ]
+}
+
+const pageHTML = generatePage(mockData);
+
+// promptEmployee(teamData)
+//   .then(teamData => {
+//         const pageHTML = generatePage(teamData);
+
+        // fs.writeFile('./dist/index.html', pageHTML, err => {
+        //   if (err) throw new Error(err);
+
+        //   console.log('Page created! Check out index.html in this the ./dist directory to see it!');
+        // });
+//   });
 
 
