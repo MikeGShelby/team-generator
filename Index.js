@@ -128,7 +128,3 @@ promptEmployee(teamData)
     .catch(err =>{
         console.log(err);
     });
-
-
-
-
