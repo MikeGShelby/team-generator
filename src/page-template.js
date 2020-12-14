@@ -1,10 +1,9 @@
 const generateEmployees = employeesArr => {
     return `
       <section class="row flex-row my-5">
-
         ${employeesArr
           .filter(({ role }) => role == 'Manager')
-          .map(({ name, role, id, email, officeNumber }) => {
+          .map(({ name, id, email, officeNumber }) => {
             return `
             <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <div class="card text-center shadow rounded" style="height: 100%">
@@ -34,7 +33,7 @@ const generateEmployees = employeesArr => {
 
         ${employeesArr
             .filter(({ role }) => role == 'Engineer')
-            .map(({ name, role, id, email, github }) => {
+            .map(({ name, id, email, github }) => {
               return `
             <div class="col-12 col-md-6 col-lg-4 mb-4">
               <div class="card text-center shadow rounded" style="height: 100%">
@@ -64,7 +63,7 @@ const generateEmployees = employeesArr => {
 
             ${employeesArr
                 .filter(({ role }) => role == 'Intern')
-                .map(({ name, role, id, email, school }) => {
+                .map(({ name, id, email, school }) => {
                   return `
                 <div class="col-12 col-md-6 col-lg-4 mb-4">
                     <div class="card text-center shadow rounded style="height: 100%">
@@ -91,19 +90,14 @@ const generateEmployees = employeesArr => {
                 `;
                 })
                 .join('')}
-
       </section>
     `;
   };
 
 
 module.exports = teamData => {
-    console.log(teamData);
-
-    // destructure employees from teamData based on their property key names
+    // destructure employees array from teamData
     const { employees } = teamData;
-    console.log(employees[0].name);
-    console.log(employees[1].id);
 
     return `
   <!DOCTYPE html>
@@ -114,13 +108,12 @@ module.exports = teamData => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Portfolio Demo</title>
+    <title>Team Profile</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
   </head>
 
   <body>

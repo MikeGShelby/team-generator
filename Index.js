@@ -11,6 +11,7 @@ const inquirer = require('inquirer');
 const generatePage = require('./src/page-template.js');
 const writeFile = require('./utils/generate-site.js');
 
+
 // empty team array to be used when promptEmployee is initialized
 const teamData ={};
 
