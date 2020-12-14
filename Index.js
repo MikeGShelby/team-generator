@@ -7,12 +7,11 @@
 // npm packages
 const inquirer = require('inquirer');
 
-// core library modules
-const fs = require('fs');
-
 // personal modules
 const generatePage = require('./src/page-template.js');
+const writeFile = require('./utils/generate-site.js');
 
+// empty team array to be used when promptEmployee is initialized
 const teamData ={};
 
 const promptEmployee = teamData => {
@@ -116,64 +115,20 @@ const promptEmployee = teamData => {
   });
 };
 
-
-// const mockData = {
-//         employees: [
-//             {
-//             role: 'Engineer',
-//             name: 'Mike',
-//             id: 1,
-//             email: 'mikegshelby@gmail.com',
-//             github: 'mikegshelby',
-//             confirmAddEmployee: true
-//             },
-
-//             {
-//             role: 'Manager',
-//             name: 'Manager Name',
-//             id: 2,
-//             email: 'manager@gmail.com',
-//             officeNumber: 560,
-//             confirmAddEmployee: true
-//             },
-
-//             {
-//             role: 'Engineer',
-//             name: 'engineer 2',
-//             id: 6,
-//             email: 'eng@gmail.com',
-//            github: 'githubAccount',
-//             confirmAddEmployee: true
-//             },
-
-//             {
-//             role: 'Intern',
-//             name: 'Intern Name',
-//             id: 8,
-//             email: 'intern@gmail.com',
-//             school: 'UH',
-//             confirmAddEmployee: false
-//             }
-//     ]
-// }
-
-// const pageHTML = generatePage(mockData);
-// fs.writeFile('./dist/index.html', pageHTML, err => {
-//               if (err) throw new Error(err);
-
-//               console.log('Page created! Check out index.html in this the ./dist directory to see it!');
-//             });
-
-
 promptEmployee(teamData)
-  .then(teamData => {
-        const pageHTML = generatePage(teamData);
+    .then(teamData => {
+        return generatePage(teamData);
+    })
+    .then(pageHTML => {
+        return writeFile(pageHTML);
+    })
+    .then(writeFileResponse => {
+        console.log(writeFileResponse);
+    })
+    .catch(err =>{
+        console.log(err);
+    });
 
-        fs.writeFile('./dist/index.html', pageHTML, err => {
-          if (err) throw new Error(err);
 
-          console.log('Page created! Check out index.html in this the ./dist directory to see it!');
-        });
-  });
 
 
