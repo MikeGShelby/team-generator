@@ -1,17 +1,3 @@
-
-
-
-
-## Application Demo Video
-https://drive.google.com/file/d/1Rx72HVOKTqfv7dNgwwMJN5G5UefzU97P/view
-
-## Sample README file (created using this application)
-https://github.com/MikeGShelby/README-generator/tree/main/dist
-
-
-
-
-
 # Team Profile Generator
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -35,7 +21,10 @@ A command line application created with Node.js and Inquirer.js. The application
 
 ## Application Demo Video
 ![Team Profile Generator Demo](https://github.com/mikegshelby/team-generator/raw/master/assets/videos/application-demo.jpg "Application Demo")
+https://drive.google.com/file/d/1VGz2xTANrLtXLHnMj-mQAF-BtQpfQDJ_/view
 
+## Sample Team Profile Webpage
+?
 ## Built With
 * JavaScript
 * Node.js
