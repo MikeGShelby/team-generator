@@ -7,7 +7,8 @@ A command line application created with Node.js and Inquirer.js. The application
 ## Table of Contents
   - [Description and Purpose](#description-and-purpose)
   - [Application Screenshot](#application-screenshot)
-  - [Demo Video](#demo)
+  - [Application Demo Video](#demo)
+  - [Sample Webpage](#sample-webpage)
   - [Built With](#built-with)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -20,22 +21,23 @@ A command line application created with Node.js and Inquirer.js. The application
 ![Team Profile Generator Screenshot](https://github.com/mikegshelby/team-generator/raw/master/assets/images/application-screenshot.jpg "Application Screenshot")
 
 ## Application Demo Video
-![Team Profile Generator Demo](https://github.com/mikegshelby/team-generator/raw/master/assets/videos/application-demo.jpg "Application Demo")
 https://drive.google.com/file/d/1VGz2xTANrLtXLHnMj-mQAF-BtQpfQDJ_/view
 
 ## Sample Team Profile Webpage
-?
+Below is a sample of a webpage created using this application.
+https://mikegshelby.github.io/team-profile/
+
 ## Built With
 * JavaScript
 * Node.js
 * Inquirer.js
-* Jest.js
+* Jest
 * HTML
 * Bootstrap
 * CSS
 
 ## Installation
-Application can be used in any command line terminal with Node.js installed.
+Application can be used in any command line terminal with Node.js installed. Initialize application with 'node index'
 
 Download code for this project here (zip file): https://github.com/MikeGShelby/team-generator/archive/master.zip
 Download Node here: https://nodejs.org/en/download/
@@ -59,7 +61,7 @@ MIT License
 Developed by Mike Shelby
 
 ## Tests
-Unit tests were completed using Jest.js. Tests were run on a parent Employee class and each of its extended classes: Manager, Engineer, and Intern.
+Unit tests were completed using Jest. Tests were run on a parent Employee class and each of its extended classes: Manager, Engineer, and Intern.
 
 ![Unit Tests Screenshot](https://github.com/mikegshelby/team-generator/raw/master/assets/videos/four-passing-tests.gif "Tests GIF")
 
