@@ -7,8 +7,8 @@ A command line application created with Node.js and Inquirer.js. The application
 ## Table of Contents
   - [Description and Purpose](#description-and-purpose)
   - [Application Screenshot](#application-screenshot)
-  - [Application Demo Video](#demo)
-  - [Sample Webpage](#sample-webpage)
+  - [Application Demo Video](#application-demo-video)
+  - [Sample Webpage](#sample-team-profile-webpage)
   - [Built With](#built-with)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -18,14 +18,14 @@ A command line application created with Node.js and Inquirer.js. The application
   - [Questions](#questions)
 
 ## Application Screenshot
-![Team Profile Generator Screenshot](https://github.com/mikegshelby/team-generator/raw/master/assets/images/application-screenshot.jpg "Application Screenshot")
+![Team Profile Generator Screenshot](./assets/images/application-screenshot.jpg "Application Screenshot")
 
 ## Application Demo Video
 https://drive.google.com/file/d/1VGz2xTANrLtXLHnMj-mQAF-BtQpfQDJ_/view
 
 ## Sample Team Profile Webpage
-Below is a sample of a webpage created using this application.
-https://mikegshelby.github.io/team-profile/
+![Team Profile Webpage Screenshot](./assets/images/webpage-screenshot.jpg "Webpage Screenshot")
+View in browser: https://mikegshelby.github.io/team-profile/
 
 ## Built With
 * JavaScript
