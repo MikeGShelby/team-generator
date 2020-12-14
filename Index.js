@@ -15,59 +15,6 @@ const generatePage = require('./src/page-template.js');
 
 const teamData ={};
 
-// const promptManager = () => {
-//   return inquirer.prompt([
-//     {
-//         type: 'input',
-//         name: 'name',
-//         message: "Provide a name for your team's     manager (Required):",
-//         validate: nameInput => {
-//             if (nameInput) {
-//               return true;
-//             } else {
-//                 return 'Please enter a name';
-//             }
-//           }
-//     },
-
-//     {
-//         type: 'input',
-//         name: 'id',
-//         message: "Please provide an id for the team manager (Required):",
-//         validate: id => {
-//             const pass = id.match(/^[0-9]\d*$/);
-
-//             if (pass) {
-//                 return true;
-//             } else {
-//                 return 'Please enter an id that is a positive number';
-//             }
-//         }
-//     },
-
-//     {
-//         type: 'input',
-//         name: 'email',
-//         message: "Please provide an email for the team manager (Required):",
-//         validate: email => {
-//             const pass = email.match(/[@]/);
-
-//             if (pass) {
-//                 return true;
-//             } else {
-//                 return 'Please enter a valid email address';
-//             }
-//         }
-//     },
-
-//     {
-//
-//             }
-//         }
-//     },
-//   ]);
-// };
-
 const promptEmployee = teamData => {
   // If there's no 'employees' array property, create one
   if (!teamData.employees) {
@@ -170,30 +117,63 @@ const promptEmployee = teamData => {
 };
 
 
-const mockData = {
-        employees: [
-            {
-            role: 'Engineer',
-            name: 'Mike',
-            id: '1',
-            email: 'mikegshelby@gmail.com',
-            github: 'mikegshelby',
-            confirmAddEmployee: false
-        }
-    ]
-}
+// const mockData = {
+//         employees: [
+//             {
+//             role: 'Engineer',
+//             name: 'Mike',
+//             id: 1,
+//             email: 'mikegshelby@gmail.com',
+//             github: 'mikegshelby',
+//             confirmAddEmployee: true
+//             },
 
-const pageHTML = generatePage(mockData);
+//             {
+//             role: 'Manager',
+//             name: 'Manager Name',
+//             id: 2,
+//             email: 'manager@gmail.com',
+//             officeNumber: 560,
+//             confirmAddEmployee: true
+//             },
 
-// promptEmployee(teamData)
-//   .then(teamData => {
-//         const pageHTML = generatePage(teamData);
+//             {
+//             role: 'Engineer',
+//             name: 'engineer 2',
+//             id: 6,
+//             email: 'eng@gmail.com',
+//            github: 'githubAccount',
+//             confirmAddEmployee: true
+//             },
 
-        // fs.writeFile('./dist/index.html', pageHTML, err => {
-        //   if (err) throw new Error(err);
+//             {
+//             role: 'Intern',
+//             name: 'Intern Name',
+//             id: 8,
+//             email: 'intern@gmail.com',
+//             school: 'UH',
+//             confirmAddEmployee: false
+//             }
+//     ]
+// }
 
-        //   console.log('Page created! Check out index.html in this the ./dist directory to see it!');
-        // });
-//   });
+// const pageHTML = generatePage(mockData);
+// fs.writeFile('./dist/index.html', pageHTML, err => {
+//               if (err) throw new Error(err);
+
+//               console.log('Page created! Check out index.html in this the ./dist directory to see it!');
+//             });
+
+
+promptEmployee(teamData)
+  .then(teamData => {
+        const pageHTML = generatePage(teamData);
+
+        fs.writeFile('./dist/index.html', pageHTML, err => {
+          if (err) throw new Error(err);
+
+          console.log('Page created! Check out index.html in this the ./dist directory to see it!');
+        });
+  });
 
 
